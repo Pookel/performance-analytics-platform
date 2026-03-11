@@ -224,6 +224,55 @@ Decision Simulator
 
 ---
 
+## Dashboard Preview
+
+### Performance Overview
+<img src="images/dashboard_overview.png" width="900">
+
+Displays the main analytics dashboard including revenue, cost, profit, ROI, spend efficiency metrics, and automated executive insights.
+
+---
+
+### Decision Simulator
+<img src="images/decision_simulator.png" width="900">
+
+Allows users to forecast conversions, revenue, profit, and ROI by adjusting traffic scenarios and marketing inputs.
+
+---
+
+### KPI Drill-down Tables
+<img src="images/kpi_tables.png" width="900">
+
+Interactive data tables enable deeper inspection of daily performance metrics and channel-level KPIs.
+
+---
+
+### Model Training Results
+<img src="images/ml_train.png" width="900">
+
+Displays machine learning model training metrics including accuracy, ROC AUC, and classification performance.
+
+---
+
+### Performance Summaries
+<img src="images/performance_summaries.png" width="900">
+
+Automatically highlights the best performing variants and marketing channels based on profitability and ROI.
+
+---
+
+### Conversion Probability Prediction
+<img src="images/prediction.png" width="900">
+
+Allows users to estimate the probability that a session converts using device, channel, engagement signals, and marketing cost.
+
+---
+
+### Performance Trends
+<img src="images/trend_charts.png" width="900">
+
+Trend visualizations track conversion rates, ROI, revenue, and profit over time.
+
 ## Project Summary
 
 Performance Analytics Platform
