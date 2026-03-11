@@ -1,4 +1,4 @@
-Overview
+## Overview
 
 The Performance Analytics Platform is a lightweight analytics system that demonstrates how raw marketing data can be transformed into business insights.
 
@@ -6,50 +6,56 @@ The platform simulates user session data, processes it through an ETL pipeline, 
 
 It supports experiment analysis, marketing performance monitoring, machine learning conversion prediction, and scenario simulation for decision making.
 
-Key Features
+---
 
-  End-to-End Data Pipeline
+## Key Features
 
-  Raw event data is generated and processed through ingestion, transformation, validation, and analytics layers.
+### End-to-End Data Pipeline
 
-  Finance-Aware Performance Metrics
+Raw event data is generated and processed through ingestion, transformation, validation, and analytics layers.
 
- The platform calculates key business metrics including:
+### Finance-Aware Performance Metrics
 
-   Revenue
+The platform calculates key business metrics including:
 
-   Cost
+- Revenue
+- Cost
+- Profit
+- ROI
+- Cost per conversion
+- Revenue per conversion
+- Profit per conversion
 
-   Profit
+### A/B Experiment Analysis
+Evaluate marketing experiments and compare conversion performance between variants.
 
-   ROI
+### Machine Learning Conversion Prediction
+A trained model predicts the probability that a session will convert based on traffic source, engagement, and marketing attributes.
 
-   Cost per conversion
+### Decision Simulator
+Forecast expected conversions, revenue, profit, and ROI under different marketing scenarios.
 
-   Revenue per conversion
+### Interactive Analytics Dashboard
+A Streamlit dashboard enables exploration of performance metrics, experiment results, trends, and predictions.
 
-   Profit per conversion
+---
 
- A/B Experiment Analysis: Evaluate marketing experiments and compare conversion performance between variants.
+## Tech Stack
 
-Machine Learning Conversion Prediction: A trained model predicts the probability that a session will convert based on traffic source, engagement, and marketing attributes.
+- Python
+- Pandas
+- NumPy
+- SQLite
+- SQL
+- Matplotlib
+- Streamlit
+- Scikit-learn
 
-Decision Simulator: Forecast expected conversions, revenue, profit, and ROI under different marketing scenarios.
+---
 
-Interactive Analytics Dashboard: A Streamlit dashboard enables exploration of performance metrics, experiment results, trends, and predictions.
+## Project Structure
 
-Tech Stack
-
-Python
-Pandas
-NumPy
-SQLite
-SQL
-Matplotlib
-Streamlit
-Scikit-learn
-
-Project Structure
+```
 performance-analytics-platform/
 
 data/
@@ -74,112 +80,125 @@ models/
   conversion_model.joblib
 
 app.py                # Streamlit analytics dashboard
+```
 
+---
 
-Data Pipeline Workflow
+## Data Pipeline Workflow
 
 The system processes data through the following stages.
 
-Data Ingestion
+### Data Ingestion
 
-  Synthetic marketing session data is generated to simulate traffic sources, user behaviour, and conversions.
+Synthetic marketing session data is generated to simulate traffic sources, user behaviour, and conversions.
 
-Data Loading
+### Data Loading
 
-  Raw event data is loaded into an SQLite analytical database.
+Raw event data is loaded into an SQLite analytical database.
 
-Data Transformation
+### Data Transformation
 
-  Data is transformed into analytical tables and KPI views used for reporting.
+Data is transformed into analytical tables and KPI views used for reporting.
 
-Data Quality Checks
+### Data Quality Checks
 
-  Validation checks confirm required fields and metrics exist before analytics processing.
+Validation checks confirm required fields and metrics exist before analytics processing.
 
-Analytics Layer
+### Analytics Layer
 
-  Aggregated KPI datasets are created for reporting and dashboard use.
+Aggregated KPI datasets are created for reporting and dashboard use.
 
-Machine Learning
+### Machine Learning
 
-  A classification model predicts the probability that a session converts.
+A classification model predicts the probability that a session converts.
 
-Dashboard
+### Dashboard
 
-  Performance metrics, trends, predictions, and forecasts are displayed in an interactive dashboard.
- 
-Data Model:
+Performance metrics, trends, predictions, and forecasts are displayed in an interactive dashboard.
 
- The analytics schema includes the following core tables.
+---
 
-raw_visits
+## Data Model
+
+The analytics schema includes the following core tables.
+
+### raw_visits
 Raw synthetic event data.
 
-dim_user
+### dim_user
 User dimension table.
 
-fact_sessions
+### fact_sessions
 Session-level metrics including channel, device, engagement, marketing cost, and conversion outcome.
 
-mart_daily_kpis
+### mart_daily_kpis
 Aggregated daily performance metrics used for reporting and dashboards.
 
-Running the Platform
+---
 
-Run the full pipeline: 
+## Running the Platform
+
+### Run the full pipeline
+
+```
 python -m src.main
+```
 
 This step:
 
-  generates synthetic event data
+- generates synthetic event data
+- loads the SQLite database
+- builds analytics tables
+- runs validation checks
+- produces KPI outputs
 
-  loads the SQLite database
- 
-  builds analytics tables
+### Launch the dashboard
 
-  runs validation checks
-
-  produces KPI outputs
-
-Launch the dashboard :
+```
 streamlit run app.py
+```
 
 The dashboard allows users to explore:
 
-   marketing performance KPIs
+- marketing performance KPIs
+- channel and variant comparisons
+- experiment results
+- conversion probability predictions
+- scenario forecasting
 
-   channel and variant comparisons
+---
 
-   experiment results
+## Generated Outputs
 
-   conversion probability predictions
+### SQLite Database
+```
+data/processed/analytics.db
+```
 
-   scenario forecasting
+### KPI Datasets
+- daily_kpis.csv
+- channel_kpis.csv
+- variant_kpis.csv
+- ab_test_summary.csv
 
-Generated Outputs
- SQLite Database
- data/processed/analytics.db
- KPI Datasets
- daily_kpis.csv
- channel_kpis.csv
- variant_kpis.csv
- ab_test_summary.csv
- Charts
- conversion trends
- ROI trends
- revenue by channel
- profit by channel
- Example Insights
+### Charts
+- conversion trends
+- ROI trends
+- revenue by channel
+- profit by channel
+
+---
+
+## Example Insights
 
 Typical insights generated by the platform include:
 
-  Variant B produces higher conversion rates and profit than Variant A
+- Variant B produces higher conversion rates and profit than Variant A
+- Email campaigns generate the highest ROI relative to cost
+- Paid search drives higher traffic volume but lower profitability
+- Conversion probability increases with engagement signals such as session duration and clicks
 
-  Email campaigns generate the highest ROI relative to cost
-
-  Paid search drives higher traffic volume but lower profitability
-
-  Conversion probability increases with engagement signals such as session duration and clicks
+---
 
 ## Architecture
 
@@ -203,7 +222,9 @@ ML Conversion Prediction
 Decision Simulator
 ```
 
-Project Summary
+---
+
+## Project Summary
 
 Performance Analytics Platform
 
@@ -211,12 +232,8 @@ Designed and implemented an analytics pipeline that converts raw marketing event
 
 Key components include:
 
- ETL pipeline for marketing session data
-
- Analytics data models and KPI tables
-
- Experiment performance analysis
- 
- Machine learning conversion prediction
-
- Interactive dashboard for KPI exploration and forecasting
+- ETL pipeline for marketing session data
+- Analytics data models and KPI tables
+- Experiment performance analysis
+- Machine learning conversion prediction
+- Interactive dashboard for KPI exploration and forecasting
