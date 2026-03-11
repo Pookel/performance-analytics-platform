@@ -1,3 +1,6 @@
+Performance Analytics Platform
+ETL • Analytics Engineering • Experimentation • Machine Learning
+
 ## Overview
 
 The Performance Analytics Platform is a lightweight analytics system that demonstrates how raw marketing data can be transformed into business insights.
