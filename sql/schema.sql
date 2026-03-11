@@ -6,6 +6,9 @@ DROP TABLE IF EXISTS fact_sessions;
 DROP TABLE IF EXISTS dim_user;
 DROP TABLE IF EXISTS raw_visits;
 
+-- -----------------------------
+-- Raw data (ingestion layer)
+-- -----------------------------
 CREATE TABLE raw_visits (
   user_id TEXT NOT NULL,
   variant TEXT NOT NULL CHECK (variant IN ('A','B')),
@@ -19,12 +22,17 @@ CREATE TABLE raw_visits (
   revenue REAL NOT NULL
 );
 
+-- -----------------------------
+-- Dimension table
+-- -----------------------------
 CREATE TABLE dim_user (
   user_id TEXT PRIMARY KEY,
   country TEXT NOT NULL
 );
 
--- Fact table with finance-aware metrics
+-- -----------------------------
+-- Fact table (UPDATED)
+-- -----------------------------
 CREATE TABLE fact_sessions (
   session_id INTEGER PRIMARY KEY AUTOINCREMENT,
   user_id TEXT NOT NULL,
@@ -37,15 +45,20 @@ CREATE TABLE fact_sessions (
   converted INTEGER NOT NULL,
   revenue REAL NOT NULL,
 
-  -- Added fields
-  cost REAL NOT NULL,
+  -- ✅ NEW: pre-conversion cost (SAFE for ML)
+  cost_pre REAL NOT NULL,
+
+  -- Finance metrics
+  cost REAL NOT NULL,       -- total cost (includes conversion-linked component)
   profit REAL NOT NULL,
   roi REAL NOT NULL,
 
   FOREIGN KEY(user_id) REFERENCES dim_user(user_id)
 );
 
--- Daily KPI mart  includes finance totals + ROI
+-- -----------------------------
+-- Aggregated KPI mart
+-- -----------------------------
 CREATE TABLE mart_daily_kpis (
   visit_date TEXT NOT NULL,
   variant TEXT NOT NULL,
@@ -65,3 +78,11 @@ CREATE TABLE mart_daily_kpis (
 
   PRIMARY KEY (visit_date, variant)
 );
+
+-- -----------------------------
+-- Helpful indexes (performance)
+-- -----------------------------
+CREATE INDEX idx_fact_variant ON fact_sessions(variant);
+CREATE INDEX idx_fact_date ON fact_sessions(visit_date);
+CREATE INDEX idx_fact_channel ON fact_sessions(channel);
+CREATE INDEX idx_fact_user ON fact_sessions(user_id);

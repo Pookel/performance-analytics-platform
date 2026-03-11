@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# Spyder project files
+.spyproject/
+
+# Streamlit local settings
+.streamlit/
+
+# Local model artifacts
+models/*.joblib
+
+# Database files
+data/processed/*.db
+
+# OS files
+.DS_Store
+Thumbs.db
