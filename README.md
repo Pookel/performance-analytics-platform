@@ -247,17 +247,17 @@ Interactive data tables enable deeper inspection of daily performance metrics an
 
 ---
 
-### Model Training Results
-<img src="images/ml_train.png" width="900">
-
-Displays machine learning model training metrics including accuracy, ROC AUC, and classification performance.
-
----
-
 ### Performance Summaries
 <img src="images/performance_summaries.png" width="900">
 
 Automatically highlights the best performing variants and marketing channels based on profitability and ROI.
+
+---
+
+### Model Training Results
+<img src="images/ml_train.png" width="900">
+
+Displays machine learning model training metrics including accuracy, ROC AUC, and classification performance.
 
 ---
 
